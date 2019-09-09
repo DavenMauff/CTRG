@@ -3,7 +3,7 @@ library(tidyverse)
 library(dplyr)
 qlfsData <- read.csv(file="wf_08_17.csv",header=TRUE, sep=",")
 
-#CHANGING DATA STRUCTURE
+x#CHANGING DATA STRUCTURE
 qlfsData$year <- as.numeric(qlfsData$year)
 qlfsData$occupation <- as.factor(qlfsData$occupation)
 

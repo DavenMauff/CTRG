@@ -19,9 +19,9 @@ All data used is accounted for in the .gitignore, and therefore .R files will no
   * This can be analyzed in the scope of problems this may or may not yield for the country in the future 
   * Not all articles need to be peer-reviewed (e.g. news)
   
-| Student       | Category 1     | Category 2   | Category 3             | Category 4    |
-| ------------- |:--------------:|:------------:|:----------------------:|:-------------:|
-| Ryan Rabe     | Accounting     | Medical      | Social Work            | Nursing       |
-| Daven Mauff   | Education      | Law          | Insurance & Finance    |               | 
-| Nic Carlisle  | Human Resources| Computing    | Management & Logistics |               |
+| Student       | Category 1     | Category 2   | Category 3             | Category 4          |
+| ------------- |:--------------:|:------------:|:----------------------:|:-------------------:|
+| Ryan Rabe     | Accounting     | Medical      | Social Work            | Nursing             |
+| Daven Mauff   | Education      | Law          | Proportion Analysis    | Graph Descriptions  | 
+| Nic Carlisle  | Human Resources| Computing    | Management & Logistics | Insurance & Finance |
  

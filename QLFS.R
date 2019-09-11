@@ -122,6 +122,20 @@ year2017 <- qlfsData %>%
 #FILTERING BY EMPLOYEED PERSONS
 year2010 <- year2010 %>%
   filter(status == "Employee" | status == "Business Owner")
+year2011 <- year2011 %>%
+  filter(status == "Employee" | status == "Business Owner")
+year2012 <- year2012 %>%
+  filter(status == "Employee" | status == "Business Owner")
+year2013 <- year2013 %>%
+  filter(status == "Employee" | status == "Business Owner")
+year2014 <- year2014 %>%
+  filter(status == "Employee" | status == "Business Owner")
+year2015 <- year2015 %>%
+  filter(status == "Employee" | status == "Business Owner")
+year2016 <- year2016 %>%
+  filter(status == "Employee" | status == "Business Owner")
+year2017 <- year2017 %>%
+  filter(status == "Employee" | status == "Business Owner")
 
 #SUBSETTING YEARS BY TOP 
 year2010 <- year2010 %>%

@@ -25,3 +25,7 @@ All data used is accounted for in the .gitignore, and therefore .R files will no
 | Daven Mauff   | Education      | Law          | Proportion Analysis    | Graph Descriptions  | 
 | Nic Carlisle  | Human Resources| Computing    | Management & Logistics | Insurance & Finance |
  
+####Graph descriptions
+1. General description of the graphs and how they should be interpreted.
+
+2. Explain that a level of individual analysis for each graph needs to be done.

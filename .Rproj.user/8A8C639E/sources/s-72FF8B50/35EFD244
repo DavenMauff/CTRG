@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1568040404260.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "35EFD244",
+    "lastKnownWriteTime" : 1559908157,
+    "last_content_update" : 1559908157,
+    "path" : "~/CTRG/CESM&QLFS.R",
+    "project_path" : "CESM&QLFS.R",
+    "properties" : {
+        "cursorPosition" : "0,0",
+        "scrollLine" : "21"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

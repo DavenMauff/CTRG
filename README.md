@@ -3,6 +3,9 @@
 ## Google Drive Link
 * https://drive.google.com/open?id=12D8Ek9cMn70OkB1jWQMBAJdqh7GjmA0I
 
+## Notes 
+* In FOS, Nursing was combined with Medical under Health Sciences
+
 ## Important Information 
 All data used is accounted for in the .gitignore, and therefore .R files will not run in isolation unless data is present in file directory
 

@@ -49,4 +49,7 @@ ggplot(allData, aes(x = as.numeric(Year), y = Proportion, color = Type)) +
   geom_point(alpha = 0.5) + 
   geom_line() +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
   facet_wrap(~category)

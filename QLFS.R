@@ -287,6 +287,42 @@ names(qlfsProportions) <- c("occupation", "2010", "2010 Proportion", "2011", "20
 qlfsProportions <- qlfsProportions %>%
   select(occupation, `2010 Proportion`, `2011 Proportion`, `2012 Proportion`, `2013 Proportion`, `2014 Proportion`, `2015 Proportion`, `2016 Proportion`, `2017 Proportion`)
 
+#EDIT 2: FINDING STATUS COUNTS#################################################################################################################
+qlfsDataFOS <- read.csv(file="wf_08_17FOS.csv",header=TRUE, sep=",")
+qlfsDataFOS <- qlfsDataFOS %>%
+  select(occupation, field, edu, status, year)
+
+qlfsDataFOS$field <- case_when(
+  qlfsDataFOS$field == "Finance; economics and accounting" ~"Accounting", qlfsDataFOS$field == "Computer science" | qlfsDataFOS$field == "Information technology and computer" ~"Computing", qlfsDataFOS$field == "Education; training or development" | qlfsDataFOS$field == "Education and development" ~"Education", qlfsDataFOS$field == "Office administration" ~"Human Resources", qlfsDataFOS$field == "Business; commerce and management studies" ~"Insurance/Finance", qlfsDataFOS$field == "Law" ~"Law", qlfsDataFOS$field == "Management" ~"Management/Logistics", qlfsDataFOS$field == "Health care or health sciences" ~"Medical", qlfsDataFOS$field == "Public administration or social services" | qlfsDataFOS$field == "Social sciences or social studies" ~"Social Work")
+
+####################################HOLD UP ON THIS########################################################################################################################
+
+years <- c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)
+
+qlfsDataFOS <- qlfsDataFOS %>%
+  filter(edu == higherEducation) %>%
+  filter(status == "Job Seeker" | status == "Want to work, stopped seeking") %>%
+  filter(field == top$occupation)
+
+qlfsDataFOS2 <- qlfsDataFOS %>%
+  select(-occupation)
+
+qlfsDataFOS2 <- data.frame(with(qlfsDataFOS2, table(field, status, year)))
+qlfsDataFOS2 <- qlfsDataFOS2 %>%
+  group_by(year) %>%
+  spread(year, Freq) %>%
+  filter(status == "Job Seeker" | status == "Want to work, stopped seeking") %>%
+  select(-status)
+
+qlfsDataFOS2$field <- as.character(qlfsDataFOS2$field)
+
+
+relative_unemployment <- as.data.frame(apply(qlfsDataFOS2[,2:6], 2, function(x) tapply(x, qlfsDataFOS2$field, sum)))
+total_unemployed <- sum(relative_unemployment)
+rownames(relative_unemployment) <-  1:nrow(relative_unemployment)
+relative_unemployment['field'] <- distinct(qlfsDataFOS2['field'])
+relative_unemployment <- select(field, `2013`, `2014`, `2015`, `2016`, `2017`)
+
 
 
 #EXPORTING DATA TO CSV

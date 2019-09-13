@@ -238,6 +238,9 @@ year2016 <- year2016 %>%
 year2017 <- year2017 %>%
   select(occupation, `Total Higher Education`)
 
+#####EXTRACTING TOTAL VALUES FOR LATER USE############################################################################################################
+
+
 #CALCULATING PROPORTIONS PER YEAR
 year2010 <- year2010 %>%
   mutate(`2010 Proportion` = round(`Total Higher Education`/sum(`Total Higher Education`), digits = 2) * 100)
@@ -266,26 +269,18 @@ year2017 <- year2017 %>%
 #MERGING ALL YEAR COLUMNS
 qlfsProportions <- merge(merge(merge(merge(merge(merge(merge(year2010, year2011, by = "occupation", all = T), year2012, by = "occupation", all = T), year2013, by = "occupation", all = T), year2014, by = "occupation", all = T), year2015, by = "occupation", all =T), year2016, by = "occupation", all = T), year2017, by = "occupation", all = T)
 
-rm("year2010", "year2011", "year2012", "year2013", "year2014", "year2015", "year2016", "year2017")
+yearly <- qlfsProportions
 
 #CHANGING THE NAMES OF PROPORTIONS DATASET TO ACCOUNT FOR DUPPLICATE COLUMNS
 names(qlfsProportions) <- c("occupation", "2010", "2010 Proportion", "2011", "2011 Proportion", "2012", "2012 Proportion", "2013", "2013 Proportion", "2014", "2014 Proportion", "2015", "2015 Proportion", "2016", "2016 Proportion", "2017", "2017 Proportion")
+names(yearly) <- c("occupation", "2010", "2010 Proportion", "2011", "2011 Proportion", "2012", "2012 Proportion", "2013", "2013 Proportion", "2014", "2014 Proportion", "2015", "2015 Proportion", "2016", "2016 Proportion", "2017", "2017 Proportion")
 
 #SELECTING USEFUL CATEGORIES FROM DATASET
 qlfsProportions <- qlfsProportions %>%
   select(occupation, `2010 Proportion`, `2011 Proportion`, `2012 Proportion`, `2013 Proportion`, `2014 Proportion`, `2015 Proportion`, `2016 Proportion`, `2017 Proportion`)
 
-#MERGING ALL YEAR COLUMNS
-qlfsProportions <- merge(merge(merge(merge(merge(merge(merge(year2010, year2011, by = "occupation", all = T), year2012, by = "occupation", all = T), year2013, by = "occupation", all = T), year2014, by = "occupation", all = T), year2015, by = "occupation", all =T), year2016, by = "occupation", all = T), year2017, by = "occupation", all = T)
-
-rm("year2010", "year2011", "year2012", "year2013", "year2014", "year2015", "year2016", "year2017")
-
-#CHANGING THE NAMES OF PROPORTIONS DATASET TO ACCOUNT FOR DUPPLICATE COLUMNS
-names(qlfsProportions) <- c("occupation", "2010", "2010 Proportion", "2011", "2011 Proportion", "2012", "2012 Proportion", "2013", "2013 Proportion", "2014", "2014 Proportion", "2015", "2015 Proportion", "2016", "2016 Proportion", "2017", "2017 Proportion")
-
-#SELECTING USEFUL CATEGORIES FROM DATASET
-qlfsProportions <- qlfsProportions %>%
-  select(occupation, `2010 Proportion`, `2011 Proportion`, `2012 Proportion`, `2013 Proportion`, `2014 Proportion`, `2015 Proportion`, `2016 Proportion`, `2017 Proportion`)
+yearly<- yearly %>%
+  select(occupation, `2010`, `2011`, `2012`, `2013`, `2014`, `2015`, `2016`, `2017`)
 
 #EDIT 2: FINDING STATUS COUNTS#################################################################################################################
 qlfsDataFOS <- read.csv(file="wf_08_17FOS.csv",header=TRUE, sep=",")
@@ -321,9 +316,88 @@ relative_unemployment <- as.data.frame(apply(qlfsDataFOS2[,2:6], 2, function(x) 
 total_unemployed <- sum(relative_unemployment)
 rownames(relative_unemployment) <-  1:nrow(relative_unemployment)
 relative_unemployment['field'] <- distinct(qlfsDataFOS2['field'])
-relative_unemployment <- select(field, `2013`, `2014`, `2015`, `2016`, `2017`)
+relative_unemployment <- relative_unemployment %>%
+  select(field, `2013`, `2014`, `2015`, `2016`, `2017`)
 
+#######Proportioned Unemployment (DIVDED PER YEAR VALUES)###############################################################################################
+yearly <- yearly %>%
+  filter(occupation != "Nursing") %>%
+  select(occupation, `2013`, `2014`, `2015`, `2016`, `2017`)
+total_employed <- yearly %>%
+  select(`2013`, `2014`, `2015`, `2016`, `2017`)
+total_employed <- sum(total_employed)
+
+unemployment_rate_total <- relative_unemployment
+unemployment_rate_total['totals'] <-  rowSums(unemployment_rate_total[-1]) 
+unemployment_rate_total['proportioned_total'] <- (unemployment_rate_total$totals/total_employed) *100
+unemployment_rate_total <- unemployment_rate_total %>%
+  select(field, proportioned_total)
+
+ggplot(data = unemployment_rate_total, aes(x=field, y=proportioned_total)) +
+  geom_bar(stat = "identity") +
+  ggtitle("Total Unemployment Rates") +
+  ylab("Percentage")  +
+  xlab("Field of Study")
+
+unemployment_rate_yearly <- relative_unemployment
+
+unemployment_rate_yearly$`2013` <- round((unemployment_rate_yearly$`2013`/yearly$`2013`), digits = 2) * 100 
+unemployment_rate_yearly$`2014` <- round((unemployment_rate_yearly$`2014`/yearly$`2014`), digits = 2) * 100 
+unemployment_rate_yearly$`2015` <- round((unemployment_rate_yearly$`2015`/yearly$`2015`), digits = 2) * 100 
+unemployment_rate_yearly$`2016` <- round((unemployment_rate_yearly$`2016`/yearly$`2016`), digits = 2) * 100 
+unemployment_rate_yearly$`2017` <- round((unemployment_rate_yearly$`2017`/yearly$`2017`), digits = 2) * 100 
+
+unemployment_rate_yearly <- unemployment_rate_yearly %>%
+  gather(Year, Freq, `2013`, `2014`, `2015`, `2016`, `2017`) %>%
+  select(field, Year, Freq)
+
+ggplot(unemployment_rate_yearly, aes(x = as.numeric(Year), y = Freq, color=field)) + 
+  geom_point(alpha = 0.5) + 
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  facet_wrap(~field) +
+  ggtitle("Yearly Unemployment Rates") +
+  ylab("Percentage")
+
+
+relative_unemployment_total <- relative_unemployment
+relative_unemployment_total['totals'] <-  rowSums(relative_unemployment_total[-1]) 
+relative_unemployment_total['proportioned_total'] <- round((relative_unemployment_total$totals/total_unemployed), digits = 2) *100
+relative_unemployment_total <- relative_unemployment_total %>%
+  select(field, proportioned_total)
+
+ggplot(data = relative_unemployment_total, aes(x=field, y=proportioned_total)) +
+  geom_bar(stat = "identity") +
+  ggtitle("Total Relative Unemployment Rates") +
+  ylab("Percentage") +
+  xlab("Field of Study")
+
+relative_unemployment$`2013` <- (relative_unemployment$`2013`/sum(relative_unemployment$`2013`))*100
+relative_unemployment$`2014` <- (relative_unemployment$`2014`/sum(relative_unemployment$`2014`))*100
+relative_unemployment$`2015` <- (relative_unemployment$`2015`/sum(relative_unemployment$`2015`))*100
+relative_unemployment$`2016` <- (relative_unemployment$`2016`/sum(relative_unemployment$`2016`))*100
+relative_unemployment$`2017` <- (relative_unemployment$`2017`/sum(relative_unemployment$`2017`))*100
+
+relative_unemployment <- relative_unemployment %>%
+  gather(Year, Freq, `2013`, `2014`, `2015`, `2016`, `2017`) %>%
+  select(field, Year, Freq)
+
+ggplot(relative_unemployment, aes(x = as.numeric(Year), y = Freq, color=field)) + 
+  geom_point(alpha = 0.5) + 
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  facet_wrap(~field) +
+  ggtitle("Yearly Relative Unemployment Rates") +
+  ylab("Percentage")
 
 
 #EXPORTING DATA TO CSV
-write.csv(qlfsProportions, file = "QLFS.csv")
+write.csv(qlfsProportions,file = "QLFS.csv")

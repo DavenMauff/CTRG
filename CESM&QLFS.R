@@ -41,10 +41,150 @@ allData$Year <- gsub("CESM.PROPORTION.", "", allData$Year)
 allData <- allData %>%
   gather(Type, Proportion, CESM, QLFS)
 
+accounting <- allData %>% 
+  filter(category == "Accounting")
+
+computing <- allData %>% 
+  filter(category == "Computing")
+
+education <- allData %>% 
+  filter(category == "Education")
+
+human_resources <- allData %>% 
+  filter(category == "Human Resources")
+
+insurance_finanace <- allData %>% 
+  filter(category == "Insurance/Finance")
+
+law <- allData %>% 
+  filter(category == "Law")
+
+management_logistics <- allData %>% 
+  filter(category == "Management/Logistics")
+
+medical <- allData %>% 
+  filter(category == "Medical")
+
+nursing <- allData %>% 
+  filter(category == "Nursing")
+
+social_work <- allData %>% 
+  filter(category == "Social Work")
+
 #REMOVING DATASETS
 rm("cesmTransform", "qlfsTransform")
 
-#GRAPHING DATASET
+#ACCOUNTING 
+ggplot(accounting, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ylim(0,50) +
+  ggtitle("Accounting Skill Mismatch")
+
+#COMPUTING
+ggplot(computing, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ylim(0,50) +
+  ggtitle("Computing Skill Mismatch")
+
+#EDUCATION
+ggplot(education, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ylim(0,50) +
+  ggtitle("Education Skill Mismatch")
+
+#HUMAN RESOURCES
+ggplot(human_resources, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ylim(0,50) +
+  ggtitle("Human Resources Skill Mismatch")
+
+#INSURANCE/FINANCE
+ggplot(insurance_finanace, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ylim(0,50) +
+  ggtitle("Insurance/Finance Skill Mismatch")
+
+#LAW
+ggplot(law, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ylim(0,50) +
+  ggtitle("Law Skill Mismatch")
+
+#MANAGEMENT/LOGISTICS
+ggplot(management_logistics, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ylim(0,50) +
+  ggtitle("Management/Logistics Skill Mismatch")
+
+#MEDICAL
+ggplot(medical, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ylim(0,50) +
+  ggtitle("Medical Skill Mismatch")
+
+#NURSING
+ggplot(nursing, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ylim(0,50) +
+  ggtitle("Nursing Skill Mismatch")
+
+#SOCIAL WORK
+ggplot(social_work, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ylim(0,50) +
+  ggtitle("Social Work Skill Mismatch")
+
+#GRAPHING EVERYTHING
 ggplot(allData, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
   geom_point(alpha = 0.5) + 
   geom_line() +
@@ -52,4 +192,5 @@ ggplot(allData, aes(x = as.numeric(Year), y = Proportion, color = Type)) +
   labs(x = "Year") +
   theme_minimal() +
   theme(legend.position = "bottom") +
-  facet_wrap(~category)
+  facet_wrap(~category) +
+  ggtitle("All Skill Mismatch")

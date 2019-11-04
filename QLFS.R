@@ -335,9 +335,12 @@ unemployment_rate_total <- unemployment_rate_total %>%
 
 ggplot(data = unemployment_rate_total, aes(x=field, y=proportioned_total)) +
   geom_bar(stat = "identity") +
-  ggtitle("Total Unemployment Rates") +
   ylab("Percentage")  +
-  xlab("Field of Study")
+  xlab("Field of Study") +
+  theme_gray() +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+                     axis.title=element_text(size=12, face="bold"), axis.text.x = element_text(angle = 90)) +
+  labs(title = "Unemployment", subtitle = "All Occupations")
 
 unemployment_rate_yearly <- relative_unemployment
 

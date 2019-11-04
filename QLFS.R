@@ -388,11 +388,12 @@ social_work_unemployment_rate <- unemployment_rate_yearly %>%
 ggplot(accounting_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
   geom_point(alpha = 0.5) + 
   geom_point() +
-  geom_smooth() +
+  geom_smooth(size=2) +
   scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
   theme_minimal() +
   theme(legend.position = "bottom") +
+  theme(axis.line.x = element_line(), axis.line.y = element_line()) +
   ggtitle("Accounting Yearly Unemployment Rates") +
   ylab("Percentage") +
   ylim(0,15)

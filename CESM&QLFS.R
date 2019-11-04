@@ -71,8 +71,53 @@ nursing <- allData %>%
 social_work <- allData %>% 
   filter(category == "Social Work")
 
+oversupply <- allData %>% 
+  filter(category == "Accounting" | category == "Computing" | category == "Law" | category == "Medical")
+
+undersupply <- allData %>%
+  filter(category == "Education" | category == "Insurance/Finance" | category == "Nursing")
+
+match <- allData %>%
+  filter(category == "Management/Logistics" | category == "Social Work" | category == "Human Resources")
+
 #REMOVING DATASETS
 rm("cesmTransform", "qlfsTransform")
+
+#UNDERSUPPLY
+ggplot(undersupply, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  facet_wrap(~category) +
+  ylim(0,50) +
+  ggtitle("UNDERSUPPLY of Skills")
+
+#OVERSUPPLY
+ggplot(oversupply, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  facet_wrap(~category) +
+  ylim(0,50) +
+  ggtitle("OVERSUPPLY of Skills")
+
+#MATCH
+ggplot(match, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
+  geom_point(alpha = 0.5) + 
+  geom_line() +
+  scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  facet_wrap(~category) +
+  ylim(0,50) +
+  ggtitle("EQUILIBRIUM of Skills")
 
 #ACCOUNTING 
 ggplot(accounting, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 

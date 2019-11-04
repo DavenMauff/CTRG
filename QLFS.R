@@ -351,6 +351,7 @@ unemployment_rate_yearly <- unemployment_rate_yearly %>%
   gather(Year, Freq, `2013`, `2014`, `2015`, `2016`, `2017`) %>%
   select(field, Year, Freq)
 
+
 ggplot(unemployment_rate_yearly, aes(x = as.numeric(Year), y = Freq, color=field)) + 
   geom_point(alpha = 0.5) + 
   geom_point() +
@@ -362,6 +363,137 @@ ggplot(unemployment_rate_yearly, aes(x = as.numeric(Year), y = Freq, color=field
   facet_wrap(~field) +
   ggtitle("Yearly Unemployment Rates") +
   ylab("Percentage")
+
+## Have to seperate these into one graph per category
+
+accounting_unemployment_rate <- unemployment_rate_yearly %>%
+  filter(field == "Accounting")
+computing_unemployment_rate <- unemployment_rate_yearly %>%
+  filter(field == "Computing")
+education_unemployment_rate <- unemployment_rate_yearly %>%
+  filter(field == "Education")
+human_resources_unemployment_rate <- unemployment_rate_yearly %>%
+  filter(field == "Human Resources")
+insurance_finance_unemployment_rate <- unemployment_rate_yearly %>%
+  filter(field == "Insurance/Finance")
+law_unemployment_rate <- unemployment_rate_yearly %>%
+  filter(field == "Law")
+management_logistics_unemployment_rate <- unemployment_rate_yearly %>%
+  filter(field == "Management/Logistics")
+medical_unemployment_rate <- unemployment_rate_yearly %>%
+  filter(field == "Medical")
+social_work_unemployment_rate <- unemployment_rate_yearly %>%
+  filter(field == "Social Work")
+
+ggplot(accounting_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
+  geom_point(alpha = 0.5) + 
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ggtitle("Accounting Yearly Unemployment Rates") +
+  ylab("Percentage") +
+  ylim(0,15)
+
+ggplot(computing_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
+  geom_point(alpha = 0.5) + 
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ggtitle("Computing Yearly Unemployment Rates") +
+  ylab("Percentage") +
+  ylim(0,15)
+
+ggplot(education_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
+  geom_point(alpha = 0.5) + 
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ggtitle("Education Yearly Unemployment Rates") +
+  ylab("Percentage") +
+  ylim(0,15)
+
+ggplot(human_resources_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
+  geom_point(alpha = 0.5) + 
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ggtitle("Human Resources Yearly Unemployment Rates") +
+  ylab("Percentage") +
+  ylim(0,15)
+
+ggplot(insurance_finance_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
+  geom_point(alpha = 0.5) + 
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ggtitle("Insurance/Finance Yearly Unemployment Rates") +
+  ylab("Percentage") +
+  ylim(0,15)
+
+ggplot(law_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
+  geom_point(alpha = 0.5) + 
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ggtitle("Law Yearly Unemployment Rates") +
+  ylab("Percentage") +
+  ylim(0,15)
+
+ggplot(management_logistics_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
+  geom_point(alpha = 0.5) + 
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ggtitle("Management/Logistics Yearly Unemployment Rates") +
+  ylab("Percentage") +
+  ylim(0,15)
+
+ggplot(medical_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
+  geom_point(alpha = 0.5) + 
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ggtitle("Medical Yearly Unemployment Rates") +
+  ylab("Percentage") +
+  ylim(0,15)
+
+ggplot(social_work_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
+  geom_point(alpha = 0.5) + 
+  geom_point() +
+  geom_smooth() +
+  scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
+  labs(x = "Year") +
+  theme_minimal() +
+  theme(legend.position = "bottom") +
+  ggtitle("Social Work Yearly Unemployment Rates") +
+  ylab("Percentage") +
+  ylim(0,15)
+
+
 
 
 relative_unemployment_total <- relative_unemployment

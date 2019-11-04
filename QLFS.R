@@ -391,109 +391,125 @@ ggplot(accounting_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=f
   geom_smooth(size=2) +
   scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  theme(axis.line.x = element_line(), axis.line.y = element_line()) +
-  ggtitle("Accounting Yearly Unemployment Rates") +
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Yearly Unemployment", subtitle = "Accounting") +
   ylab("Percentage") +
   ylim(0,15)
 
 ggplot(computing_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
   geom_point(alpha = 0.5) + 
   geom_point() +
-  geom_smooth() +
+  geom_smooth(size=2) +
   scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ggtitle("Computing Yearly Unemployment Rates") +
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Yearly Unemployment", subtitle = "Computing") +
   ylab("Percentage") +
   ylim(0,15)
 
 ggplot(education_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
   geom_point(alpha = 0.5) + 
   geom_point() +
-  geom_smooth() +
+  geom_smooth(size=2) +
   scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ggtitle("Education Yearly Unemployment Rates") +
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Yearly Unemployment", subtitle = "Education") +
   ylab("Percentage") +
   ylim(0,15)
 
 ggplot(human_resources_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
   geom_point(alpha = 0.5) + 
   geom_point() +
-  geom_smooth() +
+  geom_smooth(size=2) +
   scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ggtitle("Human Resources Yearly Unemployment Rates") +
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Yearly Unemployment", subtitle = "Human Resources") +
   ylab("Percentage") +
   ylim(0,15)
 
 ggplot(insurance_finance_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
   geom_point(alpha = 0.5) + 
   geom_point() +
-  geom_smooth() +
+  geom_smooth(size=2) +
   scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ggtitle("Insurance/Finance Yearly Unemployment Rates") +
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Yearly Unemployment", subtitle = "Insurance/Finance") +
   ylab("Percentage") +
   ylim(0,15)
 
 ggplot(law_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
   geom_point(alpha = 0.5) + 
   geom_point() +
-  geom_smooth() +
+  geom_smooth(size=2) +
   scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ggtitle("Law Yearly Unemployment Rates") +
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Yearly Unemployment", subtitle = "Law") +
   ylab("Percentage") +
   ylim(0,15)
 
 ggplot(management_logistics_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
   geom_point(alpha = 0.5) + 
   geom_point() +
-  geom_smooth() +
+  geom_smooth(size=2) +
   scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ggtitle("Management/Logistics Yearly Unemployment Rates") +
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Yearly Unemployment", subtitle = "Management/Logistics") +
   ylab("Percentage") +
   ylim(0,15)
 
 ggplot(medical_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
   geom_point(alpha = 0.5) + 
   geom_point() +
-  geom_smooth() +
+  geom_smooth(size=2) +
   scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ggtitle("Medical Yearly Unemployment Rates") +
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Yearly Unemployment", subtitle = "Medical") +
   ylab("Percentage") +
   ylim(0,15)
 
 ggplot(social_work_unemployment_rate, aes(x = as.numeric(Year), y = Freq, color=field)) + 
   geom_point(alpha = 0.5) + 
   geom_point() +
-  geom_smooth() +
+  geom_smooth(size=2) +
   scale_x_continuous(breaks = c(2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ggtitle("Social Work Yearly Unemployment Rates") +
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Yearly Unemployment", subtitle = "Social Work") +
   ylab("Percentage") +
   ylim(0,15)
-
 
 
 

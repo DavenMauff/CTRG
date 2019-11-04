@@ -122,120 +122,165 @@ ggplot(match, aes(x = as.numeric(Year), y = Proportion, color = Type)) +
 #ACCOUNTING 
 ggplot(accounting, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
   geom_point(alpha = 0.5) + 
-  geom_line() +
+  geom_point() +
+  geom_line(size=2) +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ylim(0,50) +
-  ggtitle("Accounting Skill Mismatch")
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Skill Mismatch", subtitle = "Accounting") +
+  ylab("Percentage") +
+  ylim(0,50)
 
 #COMPUTING
 ggplot(computing, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
   geom_point(alpha = 0.5) + 
-  geom_line() +
+  geom_point() +
+  geom_line(size=2) +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ylim(0,50) +
-  ggtitle("Computing Skill Mismatch")
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Skill Mismatch", subtitle = "Computing") +
+  ylab("Percentage") +
+  ylim(0,50)
 
 #EDUCATION
 ggplot(education, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
   geom_point(alpha = 0.5) + 
-  geom_line() +
+  geom_point() +
+  geom_line(size=2) +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ylim(0,50) +
-  ggtitle("Education Skill Mismatch")
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Skill Mismatch", subtitle = "Education") +
+  ylab("Percentage") +
+  ylim(0,50)
 
 #HUMAN RESOURCES
 ggplot(human_resources, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
   geom_point(alpha = 0.5) + 
-  geom_line() +
+  geom_point() +
+  geom_line(size=2) +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ylim(0,50) +
-  ggtitle("Human Resources Skill Mismatch")
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Skill Mismatch", subtitle = "Human Resources") +
+  ylab("Percentage") +
+  ylim(0,50)
 
 #INSURANCE/FINANCE
 ggplot(insurance_finanace, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
   geom_point(alpha = 0.5) + 
-  geom_line() +
+  geom_point() +
+  geom_line(size=2) +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ylim(0,50) +
-  ggtitle("Insurance/Finance Skill Mismatch")
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Skill Mismatch", subtitle = "Insurnace/Finance") +
+  ylab("Percentage") +
+  ylim(0,50)
 
 #LAW
 ggplot(law, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
   geom_point(alpha = 0.5) + 
-  geom_line() +
+  geom_point() +
+  geom_line(size=2) +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ylim(0,50) +
-  ggtitle("Law Skill Mismatch")
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Skill Mismatch", subtitle = "Law") +
+  ylab("Percentage") +
+  ylim(0,50)
 
 #MANAGEMENT/LOGISTICS
 ggplot(management_logistics, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
   geom_point(alpha = 0.5) + 
-  geom_line() +
+  geom_point() +
+  geom_line(size=2) +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ylim(0,50) +
-  ggtitle("Management/Logistics Skill Mismatch")
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Skill Mismatch", subtitle = "Management/Logistics") +
+  ylab("Percentage") +
+  ylim(0,50)
 
 #MEDICAL
 ggplot(medical, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
   geom_point(alpha = 0.5) + 
-  geom_line() +
+  geom_point() +
+  geom_line(size=2) +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ylim(0,50) +
-  ggtitle("Medical Skill Mismatch")
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Skill Mismatch", subtitle = "Medical") +
+  ylab("Percentage") +
+  ylim(0,50)
 
 #NURSING
 ggplot(nursing, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
   geom_point(alpha = 0.5) + 
-  geom_line() +
+  geom_point() +
+  geom_line(size=2) +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ylim(0,50) +
-  ggtitle("Nursing Skill Mismatch")
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Skill Mismatch", subtitle = "Nursing") +
+  ylab("Percentage") +
+  ylim(0,50)
 
 #SOCIAL WORK
 ggplot(social_work, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
   geom_point(alpha = 0.5) + 
-  geom_line() +
+  geom_point() +
+  geom_line(size=2) +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  ylim(0,50) +
-  ggtitle("Social Work Skill Mismatch")
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Skill Mismatch", subtitle = "Social Work") +
+  ylab("Percentage") +
+  ylim(0,50)
 
 #GRAPHING EVERYTHING
 ggplot(allData, aes(x = as.numeric(Year), y = Proportion, color = Type)) + 
   geom_point(alpha = 0.5) + 
-  geom_line() +
+  geom_point() +
+  geom_line(size=2) +
   scale_x_continuous(breaks = c(2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017)) +
   labs(x = "Year") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  facet_wrap(~category) +
-  ggtitle("All Skill Mismatch")
+  theme_gray() +
+  theme(legend.position = "bottom",legend.key.width = unit(1, "cm"), plot.title = element_text(face = "bold")) +
+  theme(axis.line.x = element_line(), axis.line.y = element_line(), plot.title = element_text( size = 15, face = "bold", hjust = 0.5), plot.subtitle = element_text(color = "black", hjust = 0.5), axis.text=element_text(size=12, face="bold"),
+        axis.title=element_text(size=12, face="bold")) +
+  labs(title = "Skill Mismatch", subtitle = "All Occupations") +
+  ylab("Percentage") +
+  ylim(0,50) +
+  facet_wrap(~category)

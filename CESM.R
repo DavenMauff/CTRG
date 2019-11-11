@@ -15,6 +15,9 @@ cesmData$category <- case_when(
   cesmData$category == "Alternative And Complementary Medicine And Medical Systems" | cesmData$category == "Bioethics/Medical Ethics" | cesmData$category == "Biomedical/Medical Engineering"| cesmData$category == "Chiropractic"| cesmData$category == "Clinical Psychology"| cesmData$category == "Cognitive Psychology And Psycholinguistics"| cesmData$category == "Counselling Psychology"| cesmData$category == "Developmental And Child Psychology"| cesmData$category == "Health And Medical Administrative Services"| cesmData$category == "Health Professions and Related Clinical Sciences, Other"| cesmData$category == "Health/Medical Psychology"| cesmData$category == "Medical Clinical Sciences"| cesmData$category == "Medical Illustration And Informatics"| cesmData$category == "Medical Radiologic Technology/Science (Radiography)"| cesmData$category == "Medicine"| cesmData$category == "Movement And Mind-Body Therapies And Education"| cesmData$category == "Optometry"| cesmData$category == "Personality Psychology"| cesmData$category == "Pharmacology And Toxicology"| cesmData$category == "Pharmacy, Pharmaceutical Sciences And Administration"| cesmData$category == "Physiology, Pathology And Related Sciences"| cesmData$category == "Podiatric Medicine/Podiatry"| cesmData$category == "Psychology, General"| cesmData$category == "Psychology, Other"| cesmData$category == "Psychometrics And Applied Psychological Assessment"| cesmData$category == "Rehabilitation And Therapeutic Professions"~"Medical",
   cesmData$category == "Nursing" ~ "Nursing",
   cesmData$category == "Social Work" | cesmData$category == "Human Services" | cesmData$category == "Community Psychology" | cesmData$category == "Community Organisation and Advocacy" ~ "Social Work")
+
+#CHECKING THE AMOUNT OF CATEGORIES FOR WRITE-UP
+unique(cesmData$category)
   
 #REMOVING NA ROWS
 cesmData <- cesmData %>%
